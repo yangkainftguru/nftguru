@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  browser:
+    build:
+      context: ./browserClient
+      dockerfile: Dockerfile
+    image: browser
+    container_name: browser
+    restart: always
+    networks:
+      - nftguru
+    ports:
+      - "9001:9001"
+    networks:
+      - nftguru
+
+networks:
+  nftguru:
+    driver: bridge
